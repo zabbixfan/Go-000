@@ -12,13 +12,16 @@ func Authentication(w http.ResponseWriter, r *http.Request) {
 	// 	w.WriteHeader(http.StatusBadRequest)
 	// 	return
 	// }
-	id, err := strconv.Atoi(r.Form.Get("userID"))
+	v:= r.URL.Query()
+	id,err := strconv.Atoi(v.Get("UserID"))
+	// id, err := strconv.Atoi(r.PostForm.Get("userID"))
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		fmt.Println(err)
 		return
 	}
 	if err := getUser(id); err != nil {
+		fmt.Printf("%+v\n", err)
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	}
