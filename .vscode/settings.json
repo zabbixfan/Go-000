@@ -1,3 +1,5 @@
 {
-    "go.inferGopath": false
+    "go.inferGopath": false,
+    "http.proxy": "http://127.0.0.1:1087",
+    "http.proxyAuthorization": null
 }
